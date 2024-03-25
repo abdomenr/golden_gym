@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gym_manager,Gym Manager,model_gym,group_gym_manager,1,1,1,1
+access_member_manager,Member Manager,model_member,group_gym_manager,1,1,1,1
