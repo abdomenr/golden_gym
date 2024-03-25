@@ -84,13 +84,12 @@
 
         <!-- Gym Menu Item -->
         <menuitem id="menu_gym" name="Gym" sequence="10"/>
-        <menuitem id="menu_gym_list" name="Gyms" parent="menu_gym" action="action_gym_tree"/>
 
-        <!-- Member Menu Item -->
-        <menuitem id="menu_member" name="Member" sequence="20"/>
-        <menuitem id="menu_member_list" name="Members" parent="menu_member" action="action_member_tree"/>
+        <!-- Gym Submenu Items -->
+        <menuitem id="menu_gyms" name="Gyms" parent="menu_gym" action="action_gym_tree"/>
+        <menuitem id="menu_members" name="Members" parent="menu_gym" action="action_member_tree"/>
 
-        <!-- Gym Dashboard View -->
+        <!-- Dashboard View -->
         <record id="view_gym_dashboard" model="ir.ui.view">
             <field name="name">gym.dashboard</field>
             <field name="model">gym.gym</field>
