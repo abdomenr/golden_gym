@@ -10,6 +10,7 @@
                 <tree>
                     <field name="name"/>
                     <field name="address"/>
+                    <field name="members" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
@@ -25,6 +26,45 @@
                     <field name="dob"/>
                     <field name="gym_id"/>
                 </tree>
+            </field>
+        </record>
+
+        <!-- Gym Form View -->
+        <record id="view_gym_form" model="ir.ui.view">
+            <field name="name">gym.gym.form</field>
+            <field name="model">gym.gym</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                        </group>
+                        <notebook>
+                            <page string="Members">
+                                <field name="members" widget="many2many_tags"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Member Form View -->
+        <record id="view_member_form" model="ir.ui.view">
+            <field name="name">gym.member.form</field>
+            <field name="model">gym.member</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="gender"/>
+                            <field name="dob"/>
+                            <field name="gym_id"/>
+                        </group>
+                    </sheet>
+                </form>
             </field>
         </record>
 
@@ -49,6 +89,24 @@
         <!-- Member Menu Item -->
         <menuitem id="menu_member" name="Member" sequence="20"/>
         <menuitem id="menu_member_list" name="Members" parent="menu_member" action="action_member_tree"/>
+
+        <!-- Gym Dashboard View -->
+        <record id="view_gym_dashboard" model="ir.ui.view">
+            <field name="name">gym.dashboard</field>
+            <field name="model">gym.gym</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <page string="Gym Overview">
+                        <group>
+                            <h1>My Gym Dashboard</h1>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="members" widget="many2many_tags"/>
+                        </group>
+                    </page>
+                </dashboard>
+            </field>
+        </record>
 
     </data>
 </odoo>
