@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Gym Tree View -->
+        <record id="view_gym_tree" model="ir.ui.view">
+            <field name="name">gym.gym.tree</field>
+            <field name="model">gym.gym</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Member Tree View -->
+        <record id="view_member_tree" model="ir.ui.view">
+            <field name="name">gym.member.tree</field>
+            <field name="model">gym.member</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="gender"/>
+                    <field name="dob"/>
+                    <field name="gym_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Gym Menu Action -->
+        <record id="action_gym_tree" model="ir.actions.act_window">
+            <field name="name">Gyms</field>
+            <field name="res_model">gym.gym</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Member Menu Action -->
+        <record id="action_member_tree" model="ir.actions.act_window">
+            <field name="name">Members</field>
+            <field name="res_model">gym.member</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Gym Menu Item -->
+        <menuitem id="menu_gym" name="Gym" sequence="10"/>
+        <menuitem id="menu_gym_list" name="Gyms" parent="menu_gym" action="action_gym_tree"/>
+
+        <!-- Member Menu Item -->
+        <menuitem id="menu_member" name="Member" sequence="20"/>
+        <menuitem id="menu_member_list" name="Members" parent="menu_member" action="action_member_tree"/>
+
+    </data>
+</odoo>
